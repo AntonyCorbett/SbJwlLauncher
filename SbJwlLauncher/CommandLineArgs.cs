@@ -6,9 +6,9 @@
 
         public int WindowY { get; set; }
 
-        public int WindowWidth { get; set; } = 800;
+        public int WindowWidth { get; set; }
 
-        public int WindowHeight { get; set; } = 600;
+        public int WindowHeight { get; set; }
 
         public bool IsValid()
         {

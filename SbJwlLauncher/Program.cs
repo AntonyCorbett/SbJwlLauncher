@@ -24,28 +24,36 @@
 
         private static CommandLineArgs ParseArguments(string[] args)
         {
-            var defaultArgs = new CommandLineArgs();
-
             if (args == null)
             {
-                return defaultArgs;
+                return null;
             }
 
             switch (args.Length)
             {
                 case 0:
-                    return defaultArgs;
+                    return null;
 
                 case 4:
+                    var x = ParseIntegerArg(args[0]);
+                    var y = ParseIntegerArg(args[1]);
+                    var w = ParseIntegerArg(args[2]);
+                    var h = ParseIntegerArg(args[3]);
+
+                    if (x == null || y == null || w == null || h == null)
+                    {
+                        return null;
+                    }
+
                     var result = new CommandLineArgs
                     {
-                        WindowX = ParseIntegerArg(args[0], 0),
-                        WindowY = ParseIntegerArg(args[1], 0),
-                        WindowWidth = ParseIntegerArg(args[2], 800),
-                        WindowHeight = ParseIntegerArg(args[3], 600),
+                        WindowX = x.Value,
+                        WindowY = y.Value,
+                        WindowWidth = w.Value,
+                        WindowHeight = h.Value,
                     };
 
-                    return !result.IsValid() ? defaultArgs : result;
+                    return !result.IsValid() ? null : result;
 
                 default:
                     throw new CommandLineArgumentException(
@@ -53,9 +61,9 @@
             }
         }
 
-        private static int ParseIntegerArg(string s, int defaultValue)
+        private static int? ParseIntegerArg(string s)
         {
-            return !int.TryParse(s, out var result) ? defaultValue : result;
+            return !int.TryParse(s, out var result) ? (int?)null : result;
         }
     }
 }

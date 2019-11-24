@@ -1,4 +1,4 @@
-﻿namespace SbJwlLauncher.NativeMethods
+﻿namespace SbJwlLauncher.NativeHelpers
 {
     internal enum ActivateOptions
     {

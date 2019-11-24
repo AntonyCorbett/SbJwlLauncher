@@ -4,7 +4,7 @@
     using System.Collections.Generic;
     using System.Text;
     using Microsoft.Win32;
-    using SbJwlLauncher.NativeMethods;
+    using SbJwlLauncher.NativeHelpers;
 
     internal static class PackageInfo
     {
@@ -35,13 +35,13 @@
 
         public static string GetAppUserModelId(string fullPackageName)
         {
-            NativeHelpers.OpenPackageInfoByFullName(fullPackageName, 0, out var packageInfo);
+            NativeMethods.OpenPackageInfoByFullName(fullPackageName, 0, out var packageInfo);
 
             var length = 0;
-            NativeHelpers.GetPackageApplicationIds(packageInfo, ref length, null, out var count);
+            NativeMethods.GetPackageApplicationIds(packageInfo, ref length, null, out var count);
 
             var buffer = new byte[length];
-            NativeHelpers.GetPackageApplicationIds(packageInfo, ref length, buffer, out count);
+            NativeMethods.GetPackageApplicationIds(packageInfo, ref length, buffer, out count);
 
             return Encoding.Unicode.GetString(buffer, IntPtr.Size * count, length - (IntPtr.Size * count));
         }

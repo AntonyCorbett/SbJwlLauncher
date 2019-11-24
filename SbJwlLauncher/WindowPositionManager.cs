@@ -1,14 +1,14 @@
 ﻿namespace SbJwlLauncher
 {
     using System;
-    using SbJwlLauncher.NativeMethods;
+    using SbJwlLauncher.NativeHelpers;
 
     internal static class WindowPositionManager
     {
         public static void SetWindowPosition(
             IntPtr windowHandle, int x, int y, int width, int height)
         {
-            NativeHelpers.SetWindowPos(
+            NativeMethods.SetWindowPos(
                 windowHandle, 
                 IntPtr.Zero,
                 x, 

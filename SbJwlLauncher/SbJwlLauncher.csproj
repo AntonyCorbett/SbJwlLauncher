@@ -23,6 +23,8 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <CodeAnalysisRuleSet>SbJwlLauncher.ruleset</CodeAnalysisRuleSet>
+    <DocumentationFile>bin\Debug\SbJwlLauncher.xml</DocumentationFile>
+    <NoWarn>CS1591</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -33,6 +35,8 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <CodeAnalysisRuleSet>SbJwlLauncher.ruleset</CodeAnalysisRuleSet>
+    <DocumentationFile>bin\Release\SbJwlLauncher.xml</DocumentationFile>
+    <NoWarn>CS1591</NoWarn>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -46,14 +50,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CommandLineArgs.cs" />
+    <Compile Include="EventArgs\JwLauncherEventArgs.cs" />
     <Compile Include="Exceptions\CommandLineArgumentException.cs" />
     <Compile Include="JwlManager.cs" />
     <Compile Include="Exceptions\JwlManagerException.cs" />
     <Compile Include="MainApp.cs" />
-    <Compile Include="NativeMethods\ActivateOptions.cs" />
-    <Compile Include="NativeMethods\ApplicationActivationManager.cs" />
-    <Compile Include="NativeMethods\IApplicationActivationManager.cs" />
-    <Compile Include="NativeMethods\NativeHelpers.cs" />
+    <Compile Include="NativeHelpers\ActivateOptions.cs" />
+    <Compile Include="NativeHelpers\ApplicationActivationManager.cs" />
+    <Compile Include="NativeHelpers\IApplicationActivationManager.cs" />
+    <Compile Include="NativeHelpers\NativeMethods.cs" />
     <Compile Include="PackageInfo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -68,5 +73,6 @@
     <Analyzer Include="..\packages\StyleCop.Analyzers.1.1.118\analyzers\dotnet\cs\StyleCop.Analyzers.CodeFixes.dll" />
     <Analyzer Include="..\packages\StyleCop.Analyzers.1.1.118\analyzers\dotnet\cs\StyleCop.Analyzers.dll" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
