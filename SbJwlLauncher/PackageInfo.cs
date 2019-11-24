@@ -1,9 +1,8 @@
-﻿using System.Linq;
-
-namespace SbJwlLauncher
+﻿namespace SbJwlLauncher
 {
     using System;
     using System.Collections.Generic;
+    using System.Linq;
     using System.Text;
     using Microsoft.Win32;
     using SbJwlLauncher.NativeHelpers;
