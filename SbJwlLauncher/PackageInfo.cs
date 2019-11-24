@@ -1,4 +1,6 @@
-﻿namespace SbJwlLauncher
+﻿using System.Linq;
+
+namespace SbJwlLauncher
 {
     using System;
     using System.Collections.Generic;
@@ -20,14 +22,7 @@
                     return result;
                 }
 
-                foreach (var subKey in key.GetSubKeyNames())
-                {
-                    if (subKey.StartsWith(prefix))
-                    {
-                        // jwlPackageName, e.g. "WatchtowerBibleandTractSo.45909CDBADF3C_11.4.81.0_x64__5rz59y55nfz3e"
-                        result.Add(subKey);
-                    }
-                }
+                result.AddRange(key.GetSubKeyNames().Where(subKey => subKey.StartsWith(prefix)));
             }
 
             return result;

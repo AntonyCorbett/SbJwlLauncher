@@ -23,7 +23,7 @@
                 args.WindowHeight);
         }
 
-        private void HandleJwlManagerEvent(object sender, EventArgs.JwLauncherEventArgs e)
+        private static void HandleJwlManagerEvent(object sender, EventArgs.JwLauncherEventArgs e)
         {
             Console.WriteLine(e.Message);
         }

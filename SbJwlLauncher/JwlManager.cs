@@ -25,7 +25,7 @@
             var packageNames = PackageInfo.GetPackageNamesStartingWith(PackagePrefix);
             if (packageNames.Count != 1)
             {
-                string errorMessage = "Could not find JwLibrary package name.";
+                var errorMessage = "Could not find JwLibrary package name.";
                 throw new JwlManagerException(errorMessage);
             }
 
@@ -107,12 +107,7 @@
         private static Process GetRunningProcess()
         {
             var processes = Process.GetProcessesByName("JWLibrary");
-            if (processes.Length != 1)
-            {
-                return null;
-            }
-
-            return processes.First();
+            return processes.Length != 1 ? null : processes.First();
         }
 
         private static void OnJwLauncherEvent(JwLauncherEventArgs e)
