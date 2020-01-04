@@ -10,8 +10,6 @@
 
         public int WindowHeight { get; set; }
 
-        public bool Priority { get; set; }
-
         public bool IsValid()
         {
             // a bit arbitrary!

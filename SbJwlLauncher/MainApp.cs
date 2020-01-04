@@ -11,15 +11,15 @@
 
             var processId = JwlManager.Launch();
 
+            if (processId > 0)
+            {
+                Process.GetProcessById((int)processId).PriorityClass = ProcessPriorityClass.AboveNormal;
+            }
+
             if (args == null)
             {
                 Console.WriteLine("No window position specified");
                 return;
-            }
-
-            if (args.Priority && processId > 0)
-            {
-                Process.GetProcessById((int)processId).PriorityClass = ProcessPriorityClass.AboveNormal;
             }
 
             JwlManager.SetWindowPosition(
