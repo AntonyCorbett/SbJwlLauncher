@@ -1,6 +1,7 @@
 ﻿namespace SbJwlLauncher
 {
     using System;
+    using System.Diagnostics;
 
     internal class MainApp
     {
@@ -8,12 +9,17 @@
         {
             JwlManager.JwLauncherEvent += HandleJwlManagerEvent;
 
-            JwlManager.Launch();
+            var processId = JwlManager.Launch();
 
             if (args == null)
             {
                 Console.WriteLine("No window position specified");
                 return;
+            }
+
+            if (args.Priority && processId > 0)
+            {
+                Process.GetProcessById((int)processId).PriorityClass = ProcessPriorityClass.AboveNormal;
             }
 
             JwlManager.SetWindowPosition(
