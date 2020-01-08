@@ -7,6 +7,11 @@
     {
         public void Execute(CommandLineArgs args)
         {
+            if (JwlManager.IsRunning())
+            {
+                return;
+            }
+
             JwlManager.JwLauncherEvent += HandleJwlManagerEvent;
 
             var processId = JwlManager.Launch();

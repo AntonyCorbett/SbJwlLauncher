@@ -15,7 +15,7 @@
         private const string PackagePrefix = "WatchtowerBibleandTractSo.45909CDBADF3C";
         private const string JwlMainWindowTitle = "JW Library";
         private const string JwlMainWindowClassName = "ApplicationFrameWindow";
-
+        
         public static event EventHandler<JwLauncherEventArgs> JwLauncherEvent;
 
         public static uint Launch()
@@ -75,9 +75,17 @@
             WindowPositionManager.SetWindowPosition(targetHandle, x, y, width, height);
         }
 
+        public static bool IsRunning()
+        {
+            return GetRunningProcess() != null;
+        }
+
         private static IntPtr GetMainWindowHandle()
         {
             var desktopWindowHandle = NativeMethods.GetDesktopWindow();
+
+            // todo: this logic is not correct - they are unordered. However,
+            // when first launched the main window is picked up first
 
             // JWL main window is a direct descendent of desktop
             // and the 1st in z-order having specified caption.
