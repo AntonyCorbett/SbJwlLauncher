@@ -66,7 +66,7 @@
             var targetHandle = GetMainWindowHandle();
 
             OnJwLauncherEvent(new JwLauncherEventArgs($"Retrieved JWL main window handle: 0x{(int)targetHandle:X}"));
-
+            
             OnJwLauncherEvent(new JwLauncherEventArgs($"Setting window position: {x} {y} {width} {height}"));
 
             // fix-up!

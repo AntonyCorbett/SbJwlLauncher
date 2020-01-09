@@ -61,5 +61,11 @@
             int cx, 
             int cy,
             SetWindowPosFlags uFlags);
+
+        [DllImport("user32.dll")]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        public static extern bool ShowWindow(
+            IntPtr hWnd, 
+            int nCmdShow);
     }
 }
