@@ -59,7 +59,6 @@
     <Compile Include="NativeHelpers\ApplicationActivationManager.cs" />
     <Compile Include="NativeHelpers\IApplicationActivationManager.cs" />
     <Compile Include="NativeHelpers\NativeMethods.cs" />
-    <Compile Include="PackageInfo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WindowPositionManager.cs" />

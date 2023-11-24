@@ -12,7 +12,6 @@
 
     internal static class JwlManager
     {
-        private const string PackagePrefix = "WatchtowerBibleandTractSo.45909CDBADF3C";
         private const string JwlMainWindowTitle = "JW Library";
         private const string JwlMainWindowClassName = "ApplicationFrameWindow";
         
@@ -20,27 +19,7 @@
 
         public static uint Launch()
         {
-            OnJwLauncherEvent(new JwLauncherEventArgs("Finding JWL package"));
-
-            var packageNames = PackageInfo.GetPackageNamesStartingWith(PackagePrefix);
-            if (packageNames.Count != 1)
-            {
-                var errorMessage = "Could not find JwLibrary package name.";
-                throw new JwlManagerException(errorMessage);
-            }
-
-            var packageName = packageNames.First();
-            OnJwLauncherEvent(new JwLauncherEventArgs($"Found JWL package: {packageName}"));
-
-            OnJwLauncherEvent(new JwLauncherEventArgs("Finding JWL App user model Id"));
-            var appUserModelId = PackageInfo.GetAppUserModelId(packageName);
-
-            if (string.IsNullOrWhiteSpace(appUserModelId))
-            {
-                throw new JwlManagerException("Could not find JwLibrary app user model Id.");
-            }
-
-            OnJwLauncherEvent(new JwLauncherEventArgs($"Found JWL App user model Id: {appUserModelId}"));
+            const string appUserModelId = "WatchtowerBibleandTractSo.45909CDBADF3C_5rz59y55nfz3e!App";
 
             var appActiveManager = new ApplicationActivationManager();
 
